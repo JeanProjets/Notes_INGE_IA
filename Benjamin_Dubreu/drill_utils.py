@@ -1,6 +1,22 @@
 from typing import Dict
 
 
+# EXPECTED_KEYS pourrait être utile dans d'autres fonctions, 
+# et / ou être modifié à l'avenir,
+# donc autant le mettre au début
+EXPECTED_KEYS = [
+    "machine_id",
+    "machine_ID",
+    "name",
+    "location",
+    "status",
+    "specifications",
+    "last_maintenance_date",
+    "next_maintenance_due",
+    "contact_information",
+]
+
+
 def convert_miles_to_meters(machine: Dict) -> Dict:
     specs = machine["specifications"]  # specs: short for specifications
 
@@ -12,7 +28,6 @@ def convert_miles_to_meters(machine: Dict) -> Dict:
     drilling_speed_meters_per_day = drilling_speed_miles_per_day * 1609
     specs["drilling_speed_meters_per_day"] = drilling_speed_meters_per_day
 
-    # remove fields with miles
     del specs["depth_capacity_miles"]
     del specs["drilling_speed_miles_per_day"]
 
@@ -48,3 +63,11 @@ def format_machine_id(machine: Dict) -> Dict:
     machine["machine_id"] = machine_id
 
     return machine
+
+
+# et on ajoute cette nouvelle fonction à la fin
+def remove_useless_data(dm_dict: Dict) -> Dict:
+    for key in dm_dict.copy().keys():
+        if key not in EXPECTED_KEYS:
+            del dm_dict[key]
+    return dm_dict
