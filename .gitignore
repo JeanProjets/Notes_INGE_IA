@@ -9,6 +9,7 @@ __pycache__/
 #dossiers
 data/
 archive/
+.vscode/
 
 # Distribution / packaging
 .Python
