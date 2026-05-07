@@ -1,0 +1,9 @@
+http://localhost:8891/lab
+file:///C:/Users/jb-14/Downloads/projet3_zje.html
+https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html
+https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.pivot.html?highlight=pivot#pandas.DataFrame.pivot
+https://www.youtube.com/watch?v=hsQ9efb6a7c
+
+
+https://code.visualstudio.com/docs/python/python-tutorial
+https://code.visualstudio.com/docs/python/python-tutorial#_run-hello-world

@@ -1,0 +1,50 @@
+dans fichier population : 
+on enlève les colonnes qui ne nous intéressent plus et on garde
+code pays
+pays 
+année 
+nb habitants
+
+Ca nous fait un data frame propre avec 4 colonnes.
+
+Puis sous population (sous alimentation je pense) :
+on importe
+.head
+.describe
+.info
+
+.replace
+
+dans valeur on a une chaine de caractères. Ce n'est pas normal parce que 
+ça devrait être le nombre de personnes sous alimentées. 
+describe include = all
+valeur qui revient c'est <= 0.1
+on transforme le "<" ^par rien du tout puis on transforme cette colonne en valeur
+numérique
+après de nouveau on a la redondance de la Chine donc il faut l'enlever
+puis on pivote les lignes avec les années pour les mettre en colonne
+puis on enlèves les colonnes qui ne nous intéressent plus
+donc zone, code zone, nb de personnes sous alimentées en 2013,
+nb de personnes sous alimentées en 2014. Là le fichier est nettoyé, il est prêt.
+
+On fait une jointure des 2 sur les code pays et pays. Donc là on a une fichier avec
+pour chaque pays le nombre d'habitants et le nombre de personnes sous alimentées.
+
+Puis on s'attaque au bilan alimentaire
+fichier animaux et fichier vegetaux
+on ajoute une colonne pour préciser dans le fichier animaux
+on ajoute une colonne pour préciser dans le fichier vegetaux (pour dire que ce sont des végétaux)
+on peut les regrouper pour faire une concaténation
+on enlève une fois encore la chine
+on fait un pivot table sur ce bilan alimentaire pour passer tous les éléments en colonne
+puis supprimer les colonnes qui ne nous intéressent plus trop
+on peut faire la jointure avec l'ancien fichier (avec les personnes sous alimentées ou le nombre d'habitants)
+il nous reste le fichier avec les céréales qui nous permet de récupérer le code produit des céréales (il y en a une dizaine)
+on peut créer une colonne dans le bilan alimentaire en disant si le produit est une céréale ou non
+si le code produit est dans la liste des cérales on met true. Sinon on met false.
+
+Au final on a 2 gros fichiers. Un fichier avec la population et la sous alimentation, et un autre fichier avec le bilan alimentaire où on a bien les infos des végétaux, des animaux, des céréales ...
+
+Population.loc[Population['Symbole']=='A', :]
+
+Population.loc[Population.Zone.str.contains("Chine")]
