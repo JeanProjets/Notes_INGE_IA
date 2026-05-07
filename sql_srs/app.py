@@ -1,13 +1,16 @@
 import streamlit as st
 import pandas as pd
+import duckdb
 
 tab1, tab2, tab3 = st.tabs(["cat", "dog", "owl"])
 
 df = pd.DataFrame({"a" : [1, 2, 3], "b" : [4, 5, 6]})
 with tab1:
-    input_text = st.text_area('Write something')
-    st.write('You wrote:', input_text)
-    st.dataframe(df)
+    sql_query = st.text_area('Write something')
+    result = duckdb.query(sql_query).df()
+    st.write('You wrote:', sql_query)
+    st.dataframe(result)
+
 
 with tab2:
     st.header('A dog')
